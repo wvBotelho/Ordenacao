@@ -4,43 +4,52 @@ package estudoordenacao;
 import java.util.Arrays;
 import java.util.Random;
 
-public class MergeSort {
+public class TimSort {
     private int[] vetor = new int[20];
     private Random random = new Random ();
+    private int quantidadeDeTrocas = 0;
     
-    public MergeSort ()
+    public TimSort ()
     {
         GerarVetorDesordenado();
     }
-    
-    private void GerarVetorDesordenado ()
+
+    private void GerarVetorDesordenado() 
     {
         for (int cont = 0; cont < vetor.length; cont++)
         {
             vetor[cont] = random.nextInt(100);
-            System.out.print(vetor[cont] + "|");
         }
         System.out.println("Vetor desordenado:\n" + Arrays.toString(vetor));
     }
     
-    private void Merge (int esquerda, int direita)
+    private void Tim (int esquerda, int direita, int vetorMinimo)   
     {
         int meio;
-        if (esquerda < direita)
+        int auxiliar = esquerda - direita;
+        
+        if (esquerda <= direita)
+        {
+        }
+        
+        if (auxiliar > vetorMinimo)
         {
             meio = (esquerda + direita) / 2;
-            Merge(esquerda, meio);
-            Merge(meio + 1, direita);
+            Tim(esquerda, meio, vetorMinimo);
+            Tim(meio + 1, direita, vetorMinimo);
             Intercala(esquerda, direita, meio);
         }
+        else{
+            Insertion(esquerda, direita);
+        }
     }
-
+    
     private void Intercala(int esquerda, int direita, int meio)
     {
         int posicao = esquerda;
         int esquerdaAuxiliar = esquerda;
         int meioAuxiliar = meio + 1;        
-        int[] vetorAuxiliar = new int[15];
+        int[] vetorAuxiliar = new int[20];
         
         while (esquerdaAuxiliar <= meio && meioAuxiliar <= direita)
         {
@@ -74,13 +83,31 @@ public class MergeSort {
         }
     }
     
-    public void ImprimirMergeSort ()
+    private void Insertion (int esquerda, int direita)
+    {
+        int numeroEleito;
+        
+        for (int cont = esquerda + 1; cont < direita; cont++)
+        {
+            numeroEleito = vetor[cont];
+            
+            for (int i = cont - 1; i >= 0 && vetor[i] > numeroEleito; i--)
+            {
+                vetor[i + 1] = vetor[i];
+                vetor[i] = numeroEleito;
+                quantidadeDeTrocas++;
+            }    
+        }
+    }
+    
+    public void ImprimirTimSort ()
     {
         long start = System.currentTimeMillis();
-        Merge(0, vetor.length - 1);
+        Tim(0, vetor.length, 4);
         long stop = System.currentTimeMillis();
-        
+              
         System.out.println("Vetor ordenado:\n" + Arrays.toString(vetor));
-        System.out.println("\nTempo de execução em milisegundos: " + (stop - start));
+        System.out.println("quantidade de trocas: " + quantidadeDeTrocas);
+        System.out.println("Tempo de execução em milisegundos: " + (stop - start)); 
     }
 }

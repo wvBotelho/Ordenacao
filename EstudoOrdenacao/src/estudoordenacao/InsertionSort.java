@@ -1,6 +1,7 @@
 
 package estudoordenacao;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class InsertionSort {
@@ -10,7 +11,6 @@ public class InsertionSort {
     
     public InsertionSort ()
     {
-        System.out.println("Vetor desordenado:");
         GerarVetorDesordenado();
     }
     
@@ -19,9 +19,8 @@ public class InsertionSort {
         for (int cont = 0; cont < vetor.length; cont++)
         {
             vetor[cont] = random.nextInt(100);
-            System.out.print(vetor[cont] + "|");
         }
-        System.out.println("");
+        System.out.println("Vetor desordenado:\n" + Arrays.toString(vetor));
     }
     
     private void Insertion ()
@@ -47,12 +46,7 @@ public class InsertionSort {
         Insertion();
         long stop = System.currentTimeMillis();
         
-        System.out.println("Vetor ordenado:");
-        
-        for (int cont = 0; cont < vetor.length; cont++)
-        {
-            System.out.print(vetor[cont] + "|");            
-        }
+        System.out.println("Vetor ordenado:\n" + Arrays.toString(vetor));
         System.out.println("\nQuantidade de trocas: " + quantidadeDeTrocas);
         System.out.println("Tempo de execução em milisegundos: " + (stop - start));
     }

@@ -15,15 +15,17 @@ public class EstudoOrdenacao {
 //        
 //        QuickSort quick = new QuickSort ();
 //        quick.ImprimirQuickSort();
-
+//
 //        HeapSort heap = new HeapSort();
 //        heap.ImprimirHeapSort();
-        
-        BubbleSort bubble = new BubbleSort();
-        bubble.ImprimirBubble();
+//        
+//        BubbleSort bubble = new BubbleSort ();
+//        bubble.ImprimirBubble();
+//
+//        BubbleSortOtimizado bubbleOtimizado = new BubbleSortOtimizado();
+//        bubbleOtimizado.ImprimirBubbleOtimizado();
 
-        BubbleSortOtimizado bubbleOtimizado = new BubbleSortOtimizado();
-        bubbleOtimizado.ImprimirBubbleOtimizado();
-
+        TimSort tim = new TimSort ();
+        tim.ImprimirTimSort();
     }    
 }

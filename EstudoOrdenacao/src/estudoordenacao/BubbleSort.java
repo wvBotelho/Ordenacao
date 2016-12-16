@@ -1,6 +1,7 @@
 
 package estudoordenacao;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class BubbleSort {
@@ -9,8 +10,7 @@ public class BubbleSort {
     private int quantidadeDeTrocas = 0;
     
     public BubbleSort () 
-    {
-        System.out.println("Vetor desordenado:");
+    {        
         GerarVetorDesordenado();
     }
 
@@ -19,9 +19,8 @@ public class BubbleSort {
         for (int cont = 0; cont < vetor.length; cont++)
         {
             vetor[cont] = random.nextInt(100);
-            System.out.printf(vetor[cont] + "|");
         }
-        System.out.println("");
+        System.out.println("Vetor desordenado:\n" + Arrays.toString(vetor));
     }
     
     private void Bubble ()
@@ -49,12 +48,7 @@ public class BubbleSort {
         Bubble();
         long stop = System.currentTimeMillis();
         
-        System.out.println("Vetor ordenado:");
-        
-        for (int cont = 0; cont < vetor.length; cont++)
-        {
-            System.out.printf(vetor[cont] + "|");
-        }
+        System.out.println("Vetor ordenado:\n" + Arrays.toString(vetor));
         System.out.println("\nQuantidade de trocas: " + quantidadeDeTrocas);
         System.out.println("Tempo de execução em milisegundos: " + (stop - start)); 
     }
