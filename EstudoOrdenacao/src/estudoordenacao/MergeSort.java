@@ -76,12 +76,16 @@ public class MergeSort {
     
     public void ImprimirMergeSort ()
     {
+        long start = System.currentTimeMillis();
         Merge(0, vetor.length - 1);
+        long stop = System.currentTimeMillis();
+        
         System.out.println("Vetor ordenado:");
         
         for (int cont = 0; cont < vetor.length; cont++)
         {
             System.out.print(vetor[cont] + "|");
         }
+        System.out.println("\nTempo de execução em milisegundos: " + (stop - start));
     }
 }

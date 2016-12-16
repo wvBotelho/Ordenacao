@@ -6,6 +6,7 @@ import java.util.Random;
 public class InsertionSort {
     private int[] vetor = new int[15];
     private Random random = new Random();
+    private int quantidadeDeTrocas = 0;
     
     public InsertionSort ()
     {
@@ -35,18 +36,24 @@ public class InsertionSort {
             {
                 vetor[i + 1] = vetor[i];
                 vetor[i] = numeroEleito;
+                quantidadeDeTrocas++;
             }    
         }
     }
     
     public void ImprimirInsertionSort ()
     {
+        long start = System.currentTimeMillis();        
         Insertion();
+        long stop = System.currentTimeMillis();
+        
         System.out.println("Vetor ordenado:");
         
         for (int cont = 0; cont < vetor.length; cont++)
         {
-            System.out.print(vetor[cont] + "|");
+            System.out.print(vetor[cont] + "|");            
         }
+        System.out.println("\nQuantidade de trocas: " + quantidadeDeTrocas);
+        System.out.println("Tempo de execução em milisegundos: " + (stop - start));
     }
 }
