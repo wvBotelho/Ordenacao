@@ -4,7 +4,7 @@ package estudoordenacao;
 import java.util.Random;
 
 public class InsertionSort {
-    private int[] vetor = new int[15];
+    private int[] vetor = new int[20];
     private Random random = new Random();
     private int quantidadeDeTrocas = 0;
     
@@ -18,7 +18,7 @@ public class InsertionSort {
     {
         for (int cont = 0; cont < vetor.length; cont++)
         {
-            vetor[cont] = random.nextInt(1000);
+            vetor[cont] = random.nextInt(100);
             System.out.print(vetor[cont] + "|");
         }
         System.out.println("");

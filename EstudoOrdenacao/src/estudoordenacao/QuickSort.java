@@ -4,7 +4,7 @@ package estudoordenacao;
 import java.util.Random;
 
 public class QuickSort {
-    private int[] vetor = new int[15];
+    private int[] vetor = new int[20];
     private Random random = new Random ();
     private int quantidadeDeTrocas = 0;
     
@@ -18,7 +18,7 @@ public class QuickSort {
     {
         for (int cont = 0; cont < vetor.length; cont++)
         {
-            vetor[cont] = random.nextInt(1000);
+            vetor[cont] = random.nextInt(100);
             System.out.print(vetor[cont] + "|");
         }
         System.out.println("");
@@ -29,13 +29,13 @@ public class QuickSort {
         int meio;
         if (esquerda < direita)
         {
-            meio = Intercala(esquerda, direita);
+            meio = Particiona(esquerda, direita);
             Quick(esquerda, meio);
             Quick(meio + 1, direita);
         }
     }
 
-    private int Intercala(int esquerda, int direita)
+    private int Particiona(int esquerda, int direita)
     {
         int pivo = vetor[(esquerda + direita) / 2]; 
         int esquerdaAuxiliar = esquerda - 1;
