@@ -1,1 +1,1 @@
-Repositório contendo algoritmos de ordenação utilizando a linguagem Java
+Repositório contendo algoritmos de ordenação utilizando a linguagem Java para fins de estudo.
