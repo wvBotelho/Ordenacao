@@ -24,8 +24,14 @@ public class EstudoOrdenacao {
 //
 //        BubbleSortOtimizado bubbleOtimizado = new BubbleSortOtimizado();
 //        bubbleOtimizado.ImprimirBubbleOtimizado();
+//
+//        TimSort tim = new TimSort ();
+//        tim.ImprimirTimSort();
+//
+//        BucketSort bucket = new BucketSort();
+//        bucket.ImprimirBucketSort();
 
-        TimSort tim = new TimSort ();
-        tim.ImprimirTimSort();
+        BoboSort bobo = new BoboSort ();
+        bobo.ImprimirBoboSort();
     }    
 }
