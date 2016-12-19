@@ -2,25 +2,13 @@
 package estudoordenacao;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class MergeSort {
-    private int[] vetor = new int[20];
-    private Random random = new Random ();
+    private final int[] vetor;
     
-    public MergeSort ()
+    public MergeSort (int[] vetor)
     {
-        GerarVetorDesordenado();
-    }
-    
-    private void GerarVetorDesordenado ()
-    {
-        for (int cont = 0; cont < vetor.length; cont++)
-        {
-            vetor[cont] = random.nextInt(100);
-            System.out.print(vetor[cont] + "|");
-        }
-        System.out.println("Vetor desordenado:\n" + Arrays.toString(vetor));
+        this.vetor = vetor;
     }
     
     private void Merge (int esquerda, int direita)
@@ -40,7 +28,7 @@ public class MergeSort {
         int posicao = esquerda;
         int esquerdaAuxiliar = esquerda;
         int meioAuxiliar = meio + 1;        
-        int[] vetorAuxiliar = new int[15];
+        int[] vetorAuxiliar = new int[vetor.length];
         
         while (esquerdaAuxiliar <= meio && meioAuxiliar <= direita)
         {
@@ -81,6 +69,6 @@ public class MergeSort {
         long stop = System.currentTimeMillis();
         
         System.out.println("Vetor ordenado:\n" + Arrays.toString(vetor));
-        System.out.println("\nTempo de execução em milisegundos: " + (stop - start));
+        System.out.println("Tempo de execução em milisegundos: " + (stop - start));
     }
 }

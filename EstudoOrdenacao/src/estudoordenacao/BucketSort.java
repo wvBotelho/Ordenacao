@@ -4,30 +4,29 @@ package estudoordenacao;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 public class BucketSort {
-    private int[] vetor = new int[20];
-    private Random random = new Random ();
+    private final int[] vetor;
     private List<Integer> vetorDeArray[];
-    private int quantidadeDeTrocas = 0;
+    private int quantidadeDeTrocas;
     
-    public BucketSort ()
+    public BucketSort (int[] vetor)
     {
-        GerarVetorDesordenado();
+        this.vetor = vetor;
+        quantidadeDeTrocas = 0;
     }
-
-    private void GerarVetorDesordenado()
-    {
+    
+    private void Bucket ()    
+    {        
+        int maiorElemento = 0;        
         for (int cont = 0; cont < vetor.length; cont++)
         {
-            vetor[cont] = random.nextInt(100);
+            if (vetor[cont] > maiorElemento)
+            {
+                maiorElemento = vetor[cont];
+            }
         }
-        System.out.println("Vetor desordenado:\n" + Arrays.toString(vetor));
-    }
-    
-    private void Bucket (int maiorElemento)    
-    {        
+        
         vetorDeArray = new ArrayList[vetor.length];
         
         for (int cont = 0; cont < vetor.length; cont++)
@@ -85,7 +84,7 @@ public class BucketSort {
     public void ImprimirBucketSort ()
     {
         long start = System.currentTimeMillis();
-        Bucket(99);     
+        Bucket();     
         long stop = System.currentTimeMillis();
         
         System.out.println("Vetor ordenado:\n" + Arrays.toString(vetor));

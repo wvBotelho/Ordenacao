@@ -5,22 +5,15 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class BoboSort {
-    private int[] vetor = new int[10];
-    private Random random = new Random ();
-    private int quantidadeDeTrocas = 0;
+    private final int[] vetor;
+    private Random random;
+    private int quantidadeDeTrocas;
     
-    public BoboSort ()
+    public BoboSort (int[] vetor)
     {
-        GerarVetorDesordenado();
-    }
-
-    private void GerarVetorDesordenado()
-    {
-        for (int cont = 0; cont < vetor.length; cont++)
-        {
-            vetor[cont] = random.nextInt(vetor.length);
-        }
-        System.out.println("Vetor desordenado:\n" + Arrays.toString(vetor));
+        this.vetor = vetor;
+        random = new Random ();
+        quantidadeDeTrocas = 0;
     }
     
     private void Bobo ()
